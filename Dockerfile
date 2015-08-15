@@ -27,6 +27,16 @@ ENV DB_USER admin
 ENV DB_PASS **ChangeMe**
 ENV WP_DEBUG false
 
+ENV WP_SITE_TITLE "Magnet Platform Site"
+ENV WP_SITE_URL "http://localhost/"
+ENV WP_ADMIN admin
+ENV WP_ADMIN_PASS **ChangeMe** 
+ENV WP_ADMIN_EMAIL **ChangeMe**
+ENV WP_LANGUAGE en_US
+
+ENV AWS_ACCESS_KEY_ID **ChangeMe**
+ENV AWS_SECRET_ACCESS_KEY **ChangeMe**
+
 EXPOSE 80
 VOLUME ["/app/wp-content"]
 CMD ["/run.sh"]

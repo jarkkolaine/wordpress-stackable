@@ -62,16 +62,48 @@ else
 fi
 
 touch /.mysql_db_created
-
-echo "Doing Fourbean Magnet Platform specific updates"
-
 cd /app
-RET=$(wp --allow-root core update)
-echo "WordPress updated to latest version"
-RET=$(wp --allow-root core update-db)
-echo "WordPress database updated to latest version"
-RET=$(wp --allow-root core language update)
-echo "WordPress language updated"
+
+# Install WordPress if not yet installed 
+if ! $(wp --allow-root core is-installed); then
+	if [ "$WP_ADMIN_PASS" = "**ChangeMe**" ]; then
+		echo "Please set WP_ADMIN_PASS"
+		exit -1
+	fi
+	if [ "$WP_ADMIN_EMAIL" = "**ChangeMe**" ]; then
+		echo "Please set WP_ADMIN_EMAIL"
+		exit -1
+	fi
+
+	echo "Installing WordPress"
+    RET=$(wp --allow-root --quiet core install --title="$WP_SITE_TITLE" --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL --url=$WP_SITE_URL)
+    
+    # Select language
+    $(wp --allow-root --quiet core language install $WP_LANGUAGE --activate)
+fi
+
+if [ "$AWS_ACCESS_KEY_ID" = "**ChangeMe**" ]; then
+	echo "Please set AWS_ACCESS_KEY_ID"
+	exit -1
+fi
+if [ "$AWS_SECRET_ACCESS_KEY" = "**ChangeMe**" ]; then
+	echo "Please set AWS_SECRET_ACCESS_KEY"
+	exit -1
+fi
+
+# Update WordPress to latest version
+$(wp --allow-root --quiet core update)
+$(wp --allow-root --quiet core update-db)
+$(wp --allow-root --quiet core language update)
+
+# Activate required plugins
+$(wp --allow-root --quiet plugin activate fourbean-membership)
+$(wp --allow-root --quiet plugin activate shortcode-elements)
+$(wp --allow-root --quiet plugin activate amazon-web-services)
+$(wp --allow-root --quiet plugin activate amazon-s3-and-cloudfront)
+
+# Activate default theme
+$(wp --allow-root --quiet theme activate ubizy)
 
 echo "Starting Apache"
 
