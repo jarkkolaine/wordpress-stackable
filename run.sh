@@ -63,5 +63,17 @@ fi
 
 touch /.mysql_db_created
 
+echo "Doing Fourbean Magnet Platform specific updates"
+
+cd /app
+RET=$(wp --allow-root core update)
+echo "WordPress updated to latest version"
+RET=$(wp --allow-root core update-db)
+echo "WordPress database updated to latest version"
+RET=$(wp --allow-root core language update)
+echo "WordPress language updated"
+
+echo "Starting Apache"
+
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND

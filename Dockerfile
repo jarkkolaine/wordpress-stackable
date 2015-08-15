@@ -1,7 +1,7 @@
 FROM tutum/apache-php:latest
 MAINTAINER Borja Burgos <borja@tutum.co>, Feng Honglin <hfeng@tutum.co>
 
-ENV WORDPRESS_VER 4.2.2
+ENV WORDPRESS_VER 4.2.4
 WORKDIR /
 RUN apt-get update && \
     apt-get -yq install mysql-client curl && \
@@ -16,12 +16,16 @@ ADD wp-config.php /app/wp-config.php
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
 
+# Install WP Command Line Interface for easy updates
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp && wp --info --allow-root
+
 # Expose environment variables
 ENV DB_HOST **LinkMe**
 ENV DB_PORT **LinkMe**
 ENV DB_NAME wordpress
 ENV DB_USER admin
 ENV DB_PASS **ChangeMe**
+ENV WP_DEBUG false
 
 EXPOSE 80
 VOLUME ["/app/wp-content"]
