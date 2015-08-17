@@ -39,6 +39,7 @@ define('DISALLOW_FILE_MODS', true);
 /** Amazon Web Services */
 define( 'AWS_ACCESS_KEY_ID', getenv( 'AWS_ACCESS_KEY_ID' ) );
 define( 'AWS_SECRET_ACCESS_KEY', getenv( 'AWS_SECRET_ACCESS_KEY' ) );
+define( 'AS3CF_BUCKET', getenv( 'AWS_S3_BUCKET') ); // For the Offload S3 plugin
 define( 'AWS_S3_BUCKET', getenv( 'AWS_S3_BUCKET' ) );
 
 /** Fourbase License Key */
