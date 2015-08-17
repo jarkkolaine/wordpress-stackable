@@ -101,6 +101,9 @@ $(wp --allow-root --quiet core update)
 $(wp --allow-root --quiet core update-db)
 $(wp --allow-root --quiet core language update)
 
+# Set permalink structure
+$(wp --allow-root --quiet rewrite structure "/%postname%/")
+
 echo "Activating required plugins"
 $(wp --allow-root --quiet plugin activate fourbean-membership)
 $(wp --allow-root --quiet plugin activate shortcode-elements)
