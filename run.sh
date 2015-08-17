@@ -109,6 +109,9 @@ $(wp --allow-root --quiet plugin activate fourbean-membership)
 $(wp --allow-root --quiet plugin activate shortcode-elements)
 $(wp --allow-root --quiet plugin activate amazon-web-services)
 $(wp --allow-root --quiet plugin activate amazon-s3-and-cloudfront)
+$(wp --allow-root --quiet plugin activate akismet)
+$(wp --allow-root --quiet plugin activate google-analytics-dashboard-for-wp)
+$(wp --allow-root --quiet plugin activate wordpress-seo)
 
 echo "Starting Apache"
 source /etc/apache2/envvars

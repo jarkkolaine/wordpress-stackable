@@ -34,11 +34,20 @@ ENV WP_ADMIN admin
 ENV WP_ADMIN_PASS **ChangeMe** 
 ENV WP_ADMIN_EMAIL **ChangeMe**
 ENV WP_LANGUAGE en_US
-ENV WP_SKIP_THEME_SETUP false
 
 # TODO replace with a real license key that matches our license manager
 ENV FOURBASE_LICENSE_EMAIL "magnet_default" 
 ENV FOURBASE_LICENSE_KEY "magnet_default"
+
+ENV AKISMET_API_KEY **ChangeMe**
+
+ENV MAXMIND_USER_ID **ChangeMe**
+ENV MAXMIND_LICENSE_KEY **ChangeMe**
+ENV MAXMIND_DEFAULT_COUNTRY US
+
+ENV MANDRILL_USERNAME **ChangeMe**
+ENV MANDRILL_API_KEY **ChangeMe**
+ENV MANDRILL_ENABLED 1
 
 ENV AWS_ACCESS_KEY_ID **ChangeMe**
 ENV AWS_SECRET_ACCESS_KEY **ChangeMe**

@@ -46,6 +46,19 @@ define( 'AWS_S3_BUCKET', getenv( 'AWS_S3_BUCKET' ) );
 define( 'FOURBASE_LICENSE_KEY', getenv( 'FOURBASE_LICENSE_KEY' ) );
 define( 'FOURBASE_LICENSE_EMAIL', getenv( 'FOURBASE_LICENSE_EMAIL' ) );
 
+/** Akismet */
+define( 'WPCOM_API_KEY', getenv( 'AKISMET_API_KEY' ) );
+
+/** MaxMind Geo Location Service */
+define( 'MAXMIND_USER_ID', getenv( 'MAXMIND_USER_ID' ) );
+define( 'MAXMIND_LICENSE_KEY', getenv( 'MAXMIND_LICENSE_KEY' ) );
+define( 'MAXMIND_DEFAULT_COUNTRY', getenv( 'MAXMIND_DEFAULT_COUNTRY' ) );
+
+/** Mandrill */
+define( 'MANDRILL_USERNAME', getenv( 'MANDRILL_USERNAME' ) );
+define( 'MANDRILL_API_KEY', getenv( 'MANDRILL_API_KEY' ) );
+define( 'MANDRILL_ENABLED', getenv( 'MANDRILL_ENABLED' ) == '1' );
+
 /** Default to our default theme instead of WordPress default */
 define( 'WP_DEFAULT_THEME', 'ubizy' );
 
