@@ -33,9 +33,15 @@ ENV WP_ADMIN admin
 ENV WP_ADMIN_PASS **ChangeMe** 
 ENV WP_ADMIN_EMAIL **ChangeMe**
 ENV WP_LANGUAGE en_US
+ENV WP_SKIP_THEME_SETUP false
+
+# TODO replace with a real license key that matches our license manager
+ENV FOURBASE_LICENSE_EMAIL "magnet_default" 
+ENV FOURBASE_LICENSE_KEY "magnet_default"
 
 ENV AWS_ACCESS_KEY_ID **ChangeMe**
 ENV AWS_SECRET_ACCESS_KEY **ChangeMe**
+ENV AWS_S3_BUCKET **ChangeMe**
 
 EXPOSE 80
 VOLUME ["/app/wp-content"]

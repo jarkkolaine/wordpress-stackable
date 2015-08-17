@@ -39,6 +39,14 @@ define('DISALLOW_FILE_MODS', true);
 /** Amazon Web Services */
 define( 'AWS_ACCESS_KEY_ID', getenv( 'AWS_ACCESS_KEY_ID' ) );
 define( 'AWS_SECRET_ACCESS_KEY', getenv( 'AWS_SECRET_ACCESS_KEY' ) );
+define( 'AWS_S3_BUCKET', getenv( 'AWS_S3_BUCKET' ) );
+
+/** Fourbase License Key */
+define( 'FOURBASE_LICENSE_KEY', getenv( 'FOURBASE_LICENSE_KEY' ) );
+define( 'FOURBASE_LICENSE_EMAIL', getenv( 'FOURBASE_LICENSE_EMAIL' ) );
+
+/** Default to our default theme instead of WordPress default */
+define( 'WP_DEFAULT_THEME', 'ubizy' );
 
 /**#@+
  * Authentication Unique Keys and Salts.
