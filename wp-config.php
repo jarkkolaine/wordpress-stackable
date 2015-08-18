@@ -59,6 +59,9 @@ define( 'MANDRILL_USERNAME', getenv( 'MANDRILL_USERNAME' ) );
 define( 'MANDRILL_API_KEY', getenv( 'MANDRILL_API_KEY' ) );
 define( 'MANDRILL_ENABLED', getenv( 'MANDRILL_ENABLED' ) == '1' );
 
+/** Whether hidden menus should be shown or not */
+define( 'SHOW_MENU_PAGES', getenv( 'SHOW_MENU_PAGES' ) == '1' );
+
 /** Default to our default theme instead of WordPress default */
 define( 'WP_DEFAULT_THEME', 'ubizy' );
 
