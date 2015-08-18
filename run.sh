@@ -105,6 +105,7 @@ $(wp --allow-root --quiet core language update)
 $(wp --allow-root --quiet rewrite structure "/%postname%/")
 
 echo "Activating required plugins"
+$(wp --allow-root --quiet plugin activate magnet-platform)
 $(wp --allow-root --quiet plugin activate fourbean-membership)
 $(wp --allow-root --quiet plugin activate shortcode-elements)
 $(wp --allow-root --quiet plugin activate amazon-web-services)
