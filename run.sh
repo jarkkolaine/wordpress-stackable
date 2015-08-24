@@ -20,6 +20,8 @@ echo "      Database Name:          $DB_NAME"
 echo "      Database Username:      $DB_USER"
 echo "========================================================================"
 
+echo $DB_PASS
+
 if [ -f /.mysql_db_created ]; then
         source /etc/apache2/envvars
         exec apache2 -D FOREGROUND
