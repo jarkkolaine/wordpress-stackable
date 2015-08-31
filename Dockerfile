@@ -11,6 +11,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+
+# Increase upload size
+RUN sed -i.bak 's/upload_max_filesize = 2M/upload_max_filesize = 15M/g' /etc/php5/apache2/php.ini && \
+    sed -i.bak 's/post_max_size = 8M/post_max_size = 15M/g' /etc/php5/apache2/php.ini
+
 RUN a2enmod rewrite
 ADD wp-config.php /app/wp-config.php
 ADD wp-htaccess /app/.htaccess
