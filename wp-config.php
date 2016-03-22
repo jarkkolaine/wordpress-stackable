@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-define('WP_MEMORY_LIMIT', '64MB');
+define('WP_MEMORY_LIMIT', '128MB');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -113,6 +113,8 @@ define('WPLANG', '');
  * in their development environments.
  */
 define('WP_DEBUG', getenv('WP_DEBUG') == 'true');
+define('WP_DEBUG_LOG', getenv('WP_DEBUG') == 'true');
+define( 'WP_DEBUG_DISPLAY', getenv('WP_DEBUG_DISPLAY') == 'true');
 
 /* That's all, stop editing! Happy blogging. */
 

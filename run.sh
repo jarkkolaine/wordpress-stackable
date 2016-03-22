@@ -116,6 +116,19 @@ $(wp --allow-root --quiet plugin activate akismet)
 $(wp --allow-root --quiet plugin activate google-analytics-dashboard-for-wp)
 $(wp --allow-root --quiet plugin activate wordpress-seo)
 
+NEWRELIC_CONF=/etc/php5/mods-available/newrelic.ini
+
+if [[ $NEWRELIC_APP && $NEWRELIC_LICENSE ]]
+then
+  echo "[newrelic] enabling APM metrics for ${NEWRELIC_APP}"
+  sed -i "s/newrelic.appname = \"NEWRELIC_APP\"/newrelic.appname = \"${NEWRELIC_APP}\"/" $NEWRELIC_CONF
+  sed -i "s/newrelic.license = \"NEWRELIC_LICENSE\"/newrelic.license = \"${NEWRELIC_LICENSE}\"/" $NEWRELIC_CONF
+
+  # IMPORTANT: change auto-launch parameter BACK from what was set in the Dockerfile
+  sed -i "s/newrelic.daemon.dont_launch = 3/newrelic.daemon.dont_launch = 0/" $NEWRELIC_CONF
+  php5enmod newrelic
+fi
+
 echo "Starting Apache"
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
